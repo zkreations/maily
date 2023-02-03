@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="header-wrapper">
+    {{- with .Section -}}
+      <button class="header-toggle" data-dropdown="docs-sidebar" aria-label="toggle navigation">
+        {{ partial "svg" (dict "icon" "bars") }}
+      </button>
+    {{- end -}}
+    <div class="header-logo fw-500">
+      <a class="has-icon i-md" href="{{ $.Site.BaseURL }}{{- with .Section -}}{{ . }}{{ end }}">
+        <svg class="i i-maily" viewBox="0 0 24 24">
+          <path d="M12 12 2 3v18h20V3L2 21"/>
+        </svg>
+        {{- .Site.Title | title -}}
+      </a>
+    </div>
+    <div class="header-right">
+      <button class="theme-toggle" data-dropdown="docs-mode" aria-label="Light mode">
+        {{ partial "svg" (dict "icon" "sun") }}
+      </button>
+      <a class="toc-toggle" href="#doc" aria-label="toggle toc">
+        {{ partial "svg" (dict "icon" "bars-sort") }}
+      </a>
+      {{- with .Section -}}
+        <button class="toggle-version" data-dropdown="docs-versions" aria-label="Version">
+          {{ . }}
+        </button>
+        <button class="toggle-search" data-dropdown="modal-search" aria-label="Search">
+          {{ partial "svg" (dict "icon" "search") }}
+        </button>
+      {{- end -}}
+    </div>
+
+    {{- with .Section -}}
+      <div class="dropdown" id="docs-versions">
+        <div class="list fw-500">
+          {{ range $.Site.Sections }}
+            <a class="list-link" href="{{ .Permalink }}">{{ .Section }}</a>
+          {{ end }}
+          <a class="list-link" href="{{ $.Site.BaseURL }}">{{ i18n "versions" }}</a>
+        </div>
+      </div>
+    {{- end -}}
+
+
+    <div class="dropdown" id="docs-mode">
+      <div class="list fw-500 theme-handle">
+        <button class="list-link has-icon" data-theme="system">
+          {{ partial "svg" (dict "icon" "desktop") }}
+          {{ i18n "system" }}
+        </button>
+        <button class="list-link has-icon" data-theme="light">
+          {{ partial "svg" (dict "icon" "sun") }}
+          {{ i18n "light" }}
+        </button>
+        <button class="list-link has-icon" data-theme="dark">
+          {{ partial "svg" (dict "icon" "moon") }}
+          {{ i18n "dark" }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

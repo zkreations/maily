@@ -1,0 +1,59 @@
+---
+title: Empezando
+weight: 1
+icon: book-open
+---
+
+
+<p>
+  <img src="/images/portada.png" alt="Tema Maily" width="1140"  height="400">
+</p>
+
+<p class='lead'>Muchas gracias por usar o adquirir el tema. Este documento contiene información detallada de la plantilla. Si deseas ayudar a mejorar la documentación, no dudes en enviar tus sugerencias o solicitudes de cambios, te lo agradeceré mucho.</p>
+
+## Recomendado
+
+{{< columns >}}
+
+{{< pagelink title="Instalar tema" href="install" snippet="Aprende a instalar cualquier plantilla sin errores" >}}
+
+<---->
+
+{{< pagelink title="Configuración" href="config" snippet="Aspectos opcionales que puedes activar en Blogger" >}}
+
+<---->
+
+{{< pagelink title="Actualizar" href="update" snippet="Pasa a una version más reciente de varias formas" >}}
+
+{{< /columns >}}
+
+
+## Más consultado
+
+{{< columns >}}
+
+{{< pagelink title="Menú" href="/2.0/widgets/pagelist/menu" snippet="Crea elementos del menú y desplegables" >}}
+
+{{< pagelink title="Tipografía" href="/2.0/entries/typography" snippet="Shortcodes, textos y otros códigos para tus artículos" >}}
+
+{{< pagelink title="Slider" href="/2.0/widgets/popularposts/slider" snippet="Widget que muestra artículos como diapositivas" >}}
+<---->
+
+{{< pagelink title="Secciones" href="/2.0/widgets/text/section" snippet="Widget de secciones de entradas por etiquetas" >}}
+
+{{< pagelink title="Tipos de entradas" href="/2.0/entries/templates" snippet="Aprende a usar el modo Hero y mas estilo de entradas" >}}
+
+{{< pagelink title="Producto" href="/2.0/entries/templates/product" snippet="Conecta a tus usuarios con tus productos o servicios" >}}
+
+<---->
+
+{{< pagelink title="Carousel" href="/2.0/widgets/popularposts/carousel" snippet="Configura un carrusel de entradas populares" >}}
+
+{{< pagelink title="Formulario de contacto" href="/2.0/widgets/contactform" snippet="Agrega una página de contacto para tus usuarios" >}}
+
+{{< /columns >}}
+
+
+## Changelog
+
+{{< pagelink title="Registro de cambios" name="Github" href="https://github.com/zkreations/maily/blob/main/CHANGELOG.md" >}}

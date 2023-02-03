@@ -1,0 +1,56 @@
+title = 'Maily.docs'
+baseURL = 'https://maily.hudocs.com/'
+
+languageCode = 'es'
+defaultContentLanguage = 'es'
+
+copyright = "Created by zkreations"
+canonifyURLs = true
+enableRobotsTXT = true
+enableGitInfo = true
+
+enableInlineShortcodes = true
+disableKinds = ["taxonomy","taxonomyTerm","term"]
+
+# Shortcodes HTML
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+
+  [markup.highlight]
+    noClasses = false
+
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+
+[module]
+  [[module.mounts]]
+    source = 'site/content'
+    target = 'content'
+  [[module.mounts]]
+    source = 'site/static'
+    target = 'static'
+  [[module.mounts]]
+    source = 'site/layouts'
+    target = 'layouts'
+  [[module.mounts]]
+    source = 'site/assets'
+    target = 'assets'
+  [[module.mounts]]
+    source = 'site/data'
+    target = 'data'
+  [[module.mounts]]
+    source = 'site/i18n'
+    target = 'i18n'
+
+[outputs]
+  home = ["HTML", "RSS"]
+
+[params]
+  main_template = "maily.xml"
+  main_template_url = "https://zkreations.gumroad.com/l/maily-xml"
+
+  github_repo_edit = "https://github.com/zkreations/maily/blob/main/site/content"
+
+  date_format = "January 2, 2006"

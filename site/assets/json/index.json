@@ -1,0 +1,12 @@
+{{- $.Scratch.Add "index" slice -}}
+{{- $section := $.Site.GetPage .Section }}
+{{- $regex := "/?[^/s]+/?([a-zA-Z]+).*" }}
+
+{{- range $index, $page := .Site.Pages -}}
+  {{- if or (and (.IsDescendant $section) (and (not .Draft) (not .Params.hidden))) $section.IsHome -}}
+    {{- if .File -}}
+    {{- $.Scratch.Add "index" (dict "id" $index "url" $page.RelPermalink "summary" $page.Summary "title" $page.Title "icon" ($.Site.GetPage (replaceRE $regex "$1" $page.RelPermalink)).Params.icon ) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $.Scratch.Get "index" | jsonify -}}
