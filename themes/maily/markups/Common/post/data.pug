@@ -1,0 +1,7 @@
+//- Datos del post (data:post requerido)
+//- @author zkreations
+
+b:includable(id="post:data")
+  b:if(cond='data:show.author or data:show.timestamp or data:show.comments or data:skin.vars.a_edit')
+    .article-meta.flex.items-center.flex-wrap.g-1
+      b:include(name='post:meta')

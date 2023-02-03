@@ -1,0 +1,8 @@
+//- Portadas del modo Bigger
+//- @author zkreations
+
+b:includable(id='bigger:image')
+  header.bigger-header.relative
+    b:with(value='data:post.featuredImage ?: data:const.image', var='image')
+      a.bigger-image.ratio.o-hidden.mask(aria-label='Imagen' expr:href='data:post.url.canonical')
+        b:include(name='@:image', data='{ class: "fit-image", src: data:image, alt: data:post.title.escaped, resize: (data:resize ?: 400), ratio: (data:ratio ?: "1:1"), params: data:skin.vars.f_imageParams }')

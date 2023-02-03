@@ -1,0 +1,24 @@
+//- Grupos de variables exclusivos de personalización
+//- @author zkreations
+
+| Personalizar
+| =====================
+//- Fix del editor
++variables({ 
+  "keycolor": { type: "color", value: "#2196f3" },
+  "body.background": {
+    description: "Background",
+    type: "background",
+    color: "$(body.background.color)",
+    value: "$(color) none repeat scroll top center"
+  },
+})
+
+include customize/Accents
+include customize/Font
+include customize/Widths
+include customize/Light
+include customize/Dark
+| #{'\n'}
+
+include customize/Comments

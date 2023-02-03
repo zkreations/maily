@@ -1,0 +1,44 @@
+//- Crea la variante mas grande de post populares
+//- @author zkreations
+
+b:includable(id='content:bigger')
+  b:if(cond='data:widget.sectionId == "Filters"')
+    b:include(name="docs" data='{ warn: "wrongFilter" }')
+
+    b:elseif(cond='data:widget.type != "PopularPosts"')
+    b:include(name="docs" data='{ warn: "invalidContentWidget" }')
+
+    b:elseif(cond='data:widget.sectionId not in ["upper"]')
+    b:include(name="docs" data='{ warn: "biggerSection" }')
+
+    b:elseif(cond='data:this.posts.empty')
+    b:include(name="docs" data='{ warn: "biggerEmpty" }')
+
+    b:else
+    b:with(value='(data:this.posts limit 8).length', var='count')
+      .bigger.grid.flow-row-dense(class='b:skin-g2')
+        b:class(expr:name='"bigger-" + data:count')
+
+        b:loop(index='i' values='data:this.posts limit 8', var='post')
+          .bigger-item.relative
+            b:class(expr:name='"bigger-item-" + (data:i + 1)')
+            b:switch(var='data:this.posts.length')
+              b:case(value='1')
+              b:include(name='bigger:image' data='{ ratio: "16:9", resize: 1000 }')
+
+              b:case(value='2')
+              b:include(name='bigger:image' data='{ ratio: "4:3", resize: 500 }')
+
+              b:case(value='3')
+              b:include(name='bigger:image' data='{ ratio: "1:1", resize: 400 }')
+
+              b:case(value='4')
+              b:include(name='bigger:image' data='{ ratio: (data:i < 2 ? "5:7" : "16:9"), resize: 500 }')
+
+              b:case(value='5')
+              b:include(name='bigger:image' data='{ ratio: "4:3", resize: 500 }')
+
+              b:default
+              b:include(name='bigger:image' data='{ ratio: (data:i < 3 ? "5:7" : "16:9"), resize: 500 }')
+
+            b:include(name='bigger:body')

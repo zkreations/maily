@@ -1,0 +1,14 @@
+//- Cuerpo del modo Bigger
+//- @author zkreations
+
+b:includable(id='bigger:body')
+  .bigger-body.sy-1.card-info.absolute.x-0.b-0.z-10(class='m:p-1.75 p-1.25')
+    b:with(value='data:post.labels where (l => (l.name + 0 != l.name))', var='safeLabels')
+      b:include(cond='data:post.labels.any' name='post:featuredLabels' data='{ tags: data:safeLabels, container: false }')
+
+    h3.font-primary.truncate.color-title(class="fs-5")
+      a(expr:href="data:post.url.canonical") 
+        b:eval(expr='data:post.title.escaped != "" ? data:post.title.escaped : data:messages.noTitle')
+
+    .card-meta.flex.items-center.flex-wrap.g-1
+      b:include(name='post:meta')

@@ -1,0 +1,8 @@
+//- Título de un post (data:post requerido)
+//- @author zkreations
+
+b:includable(id="post:title")
+  h1.article-title.color-title.fw-500.font-primary(class="fs-4")
+    b:tag(cond='data:post.link', expr:href='data:post.link', name='a')
+      span.article-name.inline-flex.pb-1
+        b:eval(expr='data:post.title.escaped != "" ? data:post.title.escaped : data:messages.noTitle')

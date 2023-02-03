@@ -1,0 +1,12 @@
+//- Contenido del widget Subscribe
+//- @author zkreations
+
+b:includable(id='widget:Subscribe')
+  b:if(cond='data:widget.sectionId == "Filters"')
+    b:include(name="docs" data='{ warn: "wrongFilter" }')
+
+    b:elseif(cond='data:widget.sectionId == "header"')
+    b:include(name="docs" data='{ warn: "invalidSection" }')
+
+    b:else
+    b:include(name='zk:alert' data='{ message: data:messages.theresNothingHere }')

@@ -1,0 +1,16 @@
+//- Configuraciones generales
+//- @author zkreations
+//- @param {string} g.scheme - Modo predeterminado (system, dark, light)
+//- @param {boolean} g.toggleScheme - Mostrar conmutador de modo oscuro 
+//- @param {boolean} g.menuSearch - Mostrar buscador en la barra de menú
+//- @param {string} g.formspree=YourID - La ID de su cuenta de formspree (https://formspree.io/)
+
+| General
+| =====================
++variables({
+  "g.scheme": { description: "Scheme by default", value: "system" },
+  "g.toggleScheme": { description: "Show toggle scheme", value: "true" },
+  "g.menuSearch": { description: "Enable search in menu", value: "true" },
+  "g.formspree": { description: "Form ID", value: "YourID" },
+})
+| #{'\n'}

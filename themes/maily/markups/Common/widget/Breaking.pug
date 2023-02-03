@@ -1,0 +1,27 @@
+//- Contenido del widget Breaking (Mutation: PopularPosts)
+//- @author zkreations
+
+b:includable(id='widget:Breaking')
+  b:include(name='$:class', data='{class: "header-breaking bg-default"}')
+
+  b:if(cond='data:this.posts.empty')
+    b:include(name="docs" data='{ warn: "popularsEmpty" }')
+
+    b:else
+    .breaking.flex.items-center
+
+      .breaking-icon.flex-none.has-icon.relative
+        b:include(name="i:svg", data='{ icon: "fire" }')
+
+      .breaking-content.relative.truncate(class="px-1.25")
+        .breaking-items.flex.flex-column(expr:style='"--news-items:" + data:posts.length')
+          b:loop(values='data:posts', var='post')
+            .breaking-item(class='flex items-center g-.75')
+              b:with(value='data:post.featuredImage ?: data:const.image', var='image')
+                b:include(name='@:image', data='{ class: "breaking-image", src: data:image, alt: data:post.title.escaped, resize: 34, ratio: "1:1", params: data:skin.vars.f_imageParams }')
+
+                b:with(value='data:post.labels where (l => (l.name + 0 != l.name))', var='safeLabels')
+                  b:include(cond='data:post.labels.any' name='post:featuredLabels' data='{ tags: data:safeLabels, container: false }')
+
+                a.breaking-link.truncate(expr:href="data:post.url", tabindex="-1", class="color-link:hover")
+                  b:eval(expr='data:post.title.escaped != "" ? data:post.title.escaped : data:messages.noTitle')
