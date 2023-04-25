@@ -25,7 +25,7 @@ b:includable(id="js:templates")
         .gallery-name.fw-500 {{title}}
         b:if(cond="data:show.timestamp")
           .gallery-time.has-icon
-            b:include(name='i:svg' data='{ icon: "clock" }')
+            b:include(name='i:meteor' data='{ icon: "clock" }')
             | {{time}}
 
     //- GRID, CLASSIC, ROW
@@ -57,20 +57,20 @@ b:includable(id="js:templates")
             b:class(cond='data:name == "classic"' name='justify-center')
             b:if(cond='data:show.author')
               a.meta-item.has-icon(href='{{author_url}}' rel='author' title='{{author_name}}')
-                b:include(name='i:svg' data='{ icon: "user", class: "flex-none" }')
+                b:include(name='i:meteor' data='{ icon: "user", class: "flex-none" }')
                 | {{author_name}}
             b:if(cond='data:show.timestamp')
               span.meta-item.has-icon.capitalize
-                b:include(name='i:svg' data='{ icon: "clock" }')
+                b:include(name='i:meteor' data='{ icon: "clock" }')
                 | {{time}}
             b:if(cond='data:show.comments')
               a.meta-item.has-icon(href='{{url}}#comments')
-                b:include(name='i:svg' data='{ icon: "comment" }')
+                b:include(name='i:meteor' data='{ icon: "comment" }')
                 | {{thr}}
             b:if(cond='!data:view.isPreview and data:skin.vars.a_edit')
               span.item-control.blog-admin
                 a.meta-item.flex.items-center(href='https://www.blogger.com/blog/post/edit/{{blog_id}}/{{post_id}}')
-                  b:include(name='i:svg', data='{ icon: "pencil", class: "me-.5"}')
+                  b:include(name='i:meteor', data='{ icon: "pencil", class: "me-.5"}')
                   <data:messages.edit/>
         b:if(cond='data:skin.vars.e_snippet')
           p.card-snippet.truncate-line(class='s:fs-6') {{snippet}}
