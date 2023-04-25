@@ -1563,7 +1563,7 @@ window.addEventListener('DOMContentLoaded', () => {
                             <b:case value="pinterest"/>
                             <b:attr expr:value="&quot;https://pinterest.com/pin/create/button/&quot; params {url: data:link.url}" name="href"></b:attr>
                             <b:case value="whatsapp"/>
-                            <b:attr expr:value="&quot;https://wa.me/&quot; params {text: data:link.url, text: data:link.text}" name="href"></b:attr>
+                            <b:attr expr:value="&quot;https://wa.me/&quot; params {text: (data:link.text + &quot; - &quot; + data:link.url) }" name="href"></b:attr>
                             <b:case value="telegram"/>
                             <b:attr expr:value="&quot;https://t.me/share/url&quot; params {url: data:link.url}" name="href"></b:attr>
                             <b:case value="tumblr"/>

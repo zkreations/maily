@@ -29,7 +29,7 @@ b:includable(id="post:share")
                     b:attr(expr:value='"https://pinterest.com/pin/create/button/" params {url: data:link.url}' name='href')
 
                     b:case(value='whatsapp')
-                    b:attr(expr:value='"https://wa.me/" params {text: data:link.url, text: data:link.text}' name='href')
+                    b:attr(expr:value='"https://wa.me/" params {text: (data:link.text + " - " + data:link.url) }' name='href')
 
                     b:case(value='telegram')
                     b:attr(expr:value='"https://t.me/share/url" params {url: data:link.url}' name='href')
